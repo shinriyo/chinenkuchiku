@@ -8,11 +8,10 @@
 using UnityEngine;
 using System.Collections;
 
-namespace X_UniTMX.Internal
+namespace Chinen
 {
 	public class CameraController : MonoBehaviour
 	{
-
 		public float PixelsPerUnit = 32.0f;
 		public Vector3 CamPos = Vector3.zero;
 		float ortographicSize;
