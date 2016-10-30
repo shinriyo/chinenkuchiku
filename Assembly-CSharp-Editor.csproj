@@ -45,6 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\X-UniTMX Examples\OtherExampleScenes\Scripts\Editor\ExamplesEditor.cs" />
+     <Compile Include="Assets\X-UniTMX\Editor\GUIHelpers.cs" />
+     <Compile Include="Assets\X-UniTMX\Editor\TiledMapComponentEditor.cs" />
+     <Compile Include="Assets\X-UniTMX\Editor\TiledMapObjectsWindow.cs" />
      <Compile Include="Assets\uFrame\Core\Editor\Shell\UnityVS\Editor\UnityVSPlugin.cs" />
      <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\AddManagerToSceneCommand.cs" />
      <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\AddManagerToSceneSelectionCommand.cs" />
@@ -128,7 +132,11 @@
      <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\uFrameInspector.cs" />
      <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\uFrameMVVMKernelInspector.cs" />
      <None Include="Assets\UnityChan2D\Demo\Sounds\Voice\unity-chan_voice_list.txt" />
+     <None Include="Assets\Resources\OtherMapsExamples\Isometric\iso-staggered-test.xml" />
      <None Include="Assets\uFrame\MVVM\Framework\Editor\Resources\uFrameReadme.txt" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -194,6 +202,12 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="MinimumAsyncBridge">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/Lib/MinimumAsyncBridge.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zlib">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/X-UniTMX/Ionic.Zlib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
