@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{D1CB3E53-EE8D-D50E-0CBE-D1DA0711C88C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_2;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\uFrame\Core\Editor\Shell\UnityVS\Editor\UnityVSPlugin.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\AddManagerToSceneCommand.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\AddManagerToSceneSelectionCommand.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\AddViewToSceneCommand.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\AddViewToSceneSelectionCommand.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\CreateSceneCommand.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\FindInSceneCommand.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Commands\ImportCommand.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\ExtensionAttribute.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\BindingsPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\CollectionsPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\CommandPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\CommandsPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\ComputedPropertyPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\ElementPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\HandlersPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\InstancesPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\MVVMPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\PropertiesPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\ScenePropertiesPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\ServicePage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\SimpleClassPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\StartStatePage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\StateMachinePage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\StatePage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\StateTransitionsPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\SubPropertiesPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\SubsystemPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\TransitionsPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\ViewComponentPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Pages\ViewPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\CommandClassTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\CommandClassTemplateBase.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\ControllerTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\SceneLoaderTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\SceneSettingsTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\SceneTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\ServiceTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\SimpleClassTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\StateMachineTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\StateTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\SystemLoaderTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\ViewComponentTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\ViewModelCommandClassTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\ViewModelConstructorTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\ViewModelTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\ViewTemplate.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\_ITEMNAME_VIEWMODEL.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\uFrameFormats.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Templates\uFrameTemplates.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\ChangeLogPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\CollectionBindings.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\CreatingServices.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\CreationAndInitialization.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\ExamplePage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\HelloWorldTutorial.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\HowItWorksTogether.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\ImportantNotes.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\InteractiveTutorials.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\LoadingAndUnloadingScenes.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\PropertyBindings.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\SceneTypePage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\ServicesTutorial.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\TheKernel.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\UFrameMvvmTutorial.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\ViewBindingsTutorial.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\uFrameInDepth.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\Tutorials\uFrameMVVMPage.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\UFrameEditorPlugin.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\UpgradeJsonDesignerDataInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\WelcomePlugin\Editor\WelcomePlugin.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\ControllerEditor.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\GameEditor.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\GameManagerInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\ManagerInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\SceneManagementServiceInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\SceneManagerInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\ViewInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\ViewServiceInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\uFrameEditorSceneManager.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\uFrameInspector.cs" />
+     <Compile Include="Assets\uFrame\MVVM\Framework\Editor\uFrameEditors\uFrameMVVMKernelInspector.cs" />
+     <None Include="Assets\UnityChan2D\Demo\Sounds\Voice\unity-chan_voice_list.txt" />
+     <None Include="Assets\uFrame\MVVM\Framework\Editor\Resources\uFrameReadme.txt" />
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.EditorTestsRunner">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.Attributes">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Invert.Attributes.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.Core">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.Core.GraphDesigner">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.Core.GraphDesigner.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.Core.GraphDesigner.Documentation">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.Core.GraphDesigner.Documentation.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.Core.GraphDesigner.Pro">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.Core.GraphDesigner.Pro.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.Core.GraphDesigner.Unity">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.Core.GraphDesigner.Unity.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.Data">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.ICSharpCode.NRefactory.CSharp">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.ICSharpCode.NRefactory.CSharp.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.ICSharpCode.NRefactory">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.ICSharpCode.NRefactory.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.JSON">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.JSON.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.MVVM">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/Core/Editor/Shell/Invert.MVVM.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.uFrame.MVVM">
+ <HintPath>/Users/shinriyo/Downloads/uframe/Assets/uFrame/MVVM/Editor/Invert.uFrame.MVVM.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{324BE725-D391-BD82-DBE2-79364650A1BB}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
