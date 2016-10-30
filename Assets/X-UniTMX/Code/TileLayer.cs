@@ -689,7 +689,7 @@ namespace X_UniTMX
 		/// <param name="y">Tile Y index</param>
 		/// <param name="newTileID">Global Tile ID to change existing tile to. If -1 is passed, erase current Tile</param>
 		/// <returns>true if newTileID was found and change succeded, false otherwise</returns>
-		public bool SetTile(int x, int y, int newTileID)
+        public bool SetTile(int x, int y, int newTileID, TileSet tileSet=null)
 		{
 			if (x < 0 || x >= Width || y < 0 || y >= Height || !MakeUniqueTiles)
 				return false;
@@ -701,8 +701,9 @@ namespace X_UniTMX
 				Tiles[x, y] = null;
 				return true;
 			}
+
 			Tile t = null;
-			if (BaseMap.Tiles.TryGetValue(newTileID, out t))
+            if ((tileSet == null ? BaseMap.Tiles : tileSet.Tiles).TryGetValue(newTileID, out t))
 			{
 				if (Tiles[x, y] != null)
 				{
@@ -732,7 +733,7 @@ namespace X_UniTMX
 		/// <returns>true if newTileID was found and change succeded, false otherwise</returns>
 		public bool SetTile(float x, float y, int newTileID)
 		{
-			return SetTile(Mathf.FloorToInt(x), Mathf.FloorToInt(y), newTileID);
+            return SetTile(Mathf.FloorToInt(x), Mathf.FloorToInt(y), newTileID, null);
 		}
 
 		/// <summary>
@@ -744,7 +745,7 @@ namespace X_UniTMX
 		/// <param name="newTileID">Local Tile ID to change existing tile to. If -1 is passed, erase current Tile</param>
 		/// <param name="tileSet">TileSet to read newTileID from</param>
 		/// <returns>true if newTileID inside tileSet was found and change succeded, false otherwise</returns>
-		public bool SetTile(int x, int y, int newTileID, TileSet tileSet)
+		/*public bool SetTile(int x, int y, int newTileID, TileSet tileSet)
 		{
 			if (x < 0 || x >= Width || y < 0 || y >= Height || !MakeUniqueTiles)
 				return false;
@@ -775,6 +776,7 @@ namespace X_UniTMX
 
 			return false;
 		}
+        */
 
 		/// <summary>
 		/// Sets a Tile in position x and y to be Tile with ID equals newTileID (a Local Tile ID from tileSet)
