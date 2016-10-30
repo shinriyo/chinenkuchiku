@@ -1613,18 +1613,18 @@ namespace X_UniTMX
 			// Orthogonal and Staggered maps can use BoxCollider, Isometric maps must use polygon collider
 			if (Orientation != X_UniTMX.Orientation.Isometric)
 			{
+                var collider = gameObjectMesh.GetComponent<Collider>();
 				if (obj.GetPropertyAsBoolean(Property_CreateMesh))
 				{
 					gameObjectMesh = GameObject.CreatePrimitive(PrimitiveType.Cube);
 					gameObjectMesh.name = obj.Name;
 					gameObjectMesh.transform.parent = gameObject.transform;
 					gameObjectMesh.transform.localPosition = Vector3.zero;
-//					gameObjectMesh.collider.isTrigger = isTrigger || obj.Type.Equals(Object_Type_Trigger);
-					gameObjectMesh.GetComponent<Collider>().isTrigger = isTrigger || obj.Type.Equals(Object_Type_Trigger);
+					collider.isTrigger = isTrigger || obj.Type.Equals(Object_Type_Trigger);
 				}
 				else
 				{
-					var collider = gameObject.AddComponent<BoxCollider>();
+					gameObject.AddComponent<BoxCollider>();
 					collider.isTrigger = isTrigger || obj.Type.Equals(Object_Type_Trigger);
 				}
 				gameObject.transform.localScale = new Vector3(obj.Bounds.width, obj.Bounds.height, colliderWidth);
@@ -1644,7 +1644,8 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				var rigidbody = gameObject.AddComponent<Rigidbody>();
+				gameObject.AddComponent<Rigidbody>();
+                var rigidbody = gameObject.GetComponent<Rigidbody>();
 				rigidbody.isKinematic = rigidbodyIsKinematic;
 			}
 
@@ -1679,7 +1680,7 @@ namespace X_UniTMX
 				BoxCollider2D bx = gameObject.AddComponent<BoxCollider2D>();
 				bx.isTrigger = isTrigger || obj.Type.Equals(Object_Type_Trigger);
 
-				bx.offset = new Vector2(obj.Bounds.width / 2.0f, -obj.Bounds.height / 2.0f);
+                bx.offset = new Vector2(obj.Bounds.width / 2.0f, -obj.Bounds.height / 2.0f);
 				bx.size = new Vector2(obj.Bounds.width, obj.Bounds.height);
 			}
 			else if (Orientation == X_UniTMX.Orientation.Isometric)
@@ -1700,7 +1701,7 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				var rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
+                var rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
 				rigidbody2D.isKinematic = rigidbodyIsKinematic;
 			}
 
@@ -1918,7 +1919,7 @@ namespace X_UniTMX
 					gameObjectMesh.transform.parent = gameObject.transform;
 					gameObjectMesh.transform.localPosition = new Vector3(obj.Bounds.height / 2.0f, -obj.Bounds.width / 2.0f);
 
-					var collider = gameObjectMesh.GetComponent<Collider> ();
+                    var collider = gameObjectMesh.GetComponent<Collider>();
 					cc = collider as CapsuleCollider;
 					collider.isTrigger = isTrigger || obj.Type.Equals(Object_Type_Trigger);
 					gameObjectMesh.transform.localScale = new Vector3(obj.Bounds.width, colliderWidth, obj.Bounds.height);
@@ -1944,9 +1945,8 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				gameObject.AddComponent<Rigidbody>();
-//				gameObject.rigidbody.isKinematic = rigidbodyIsKinematic;
-				gameObject.GetComponent<Rigidbody>().isKinematic = rigidbodyIsKinematic;
+                var rigidbody = gameObject.AddComponent<Rigidbody>();
+                rigidbody.isKinematic = rigidbodyIsKinematic;
 			}
 
 			if (obj.Rotation != 0)
@@ -1980,7 +1980,7 @@ namespace X_UniTMX
 				cc.isTrigger = isTrigger || obj.Type.Equals(Object_Type_Trigger);
 
 				gameObject.transform.localPosition = TiledPositionToWorldPoint(obj.Bounds.x, obj.Bounds.y, zDepth);
-				cc.offset = new Vector2(obj.Bounds.width / 2.0f, -obj.Bounds.height / 2.0f);
+                cc.offset = new Vector2(obj.Bounds.width / 2.0f, -obj.Bounds.height / 2.0f);
 
 				cc.radius = obj.Bounds.width / 2.0f;
 
@@ -1993,9 +1993,8 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				gameObject.AddComponent<Rigidbody2D>();
-//				gameObject.rigidbody2D.isKinematic = rigidbodyIsKinematic;
-				gameObject.GetComponent<Rigidbody2D>().isKinematic = rigidbodyIsKinematic;
+                var rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
+				rigidbody2D.isKinematic = rigidbodyIsKinematic;
 			}
 
 			if (obj.Rotation != 0)
@@ -2182,9 +2181,8 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				gameObject.AddComponent<Rigidbody>();
-//				gameObject.rigidbody.isKinematic = rigidbodyIsKinematic;
-				gameObject.GetComponent<Rigidbody>().isKinematic = rigidbodyIsKinematic;
+                var rigidbody = gameObject.AddComponent<Rigidbody>();
+                rigidbody.isKinematic = rigidbodyIsKinematic;
 			}
 
 			if (obj.Rotation != 0)
@@ -2242,7 +2240,7 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				var rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
+                var rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
 				rigidbody2D.isKinematic = rigidbodyIsKinematic;
 			}
 
@@ -2326,7 +2324,7 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				var rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
+                var rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
 				rigidbody2D.isKinematic = rigidbodyIsKinematic;
 			}
 
@@ -2386,7 +2384,7 @@ namespace X_UniTMX
 
 			if (createRigidbody)
 			{
-				var rigidbody = gameObject.AddComponent<Rigidbody>();
+                var rigidbody = gameObject.AddComponent<Rigidbody>();
 				rigidbody.isKinematic = rigidbodyIsKinematic;
 			}
 
@@ -2686,9 +2684,8 @@ namespace X_UniTMX
 			int c = 1;
 			while (obj.HasProperty(Property_AddComponent + c))
 			{
-//				gameObject.AddComponent(obj.GetPropertyAsString(Property_AddComponent + c));
-				var str = obj.GetPropertyAsString(Property_AddComponent + c);
-				gameObject.AddComponent(Type.GetType(str)) ;
+                var str = obj.GetPropertyAsString(Property_AddComponent + c);
+                gameObject.AddComponent(Type.GetType(str));
 				c++;
 			}
 			c = 1;
@@ -2707,14 +2704,14 @@ namespace X_UniTMX
 				c++;
 			}
 
-			if (gameObject.GetComponent<Renderer>() != null)
+            var renderer = gameObject.GetComponent<Renderer>();
+			if (renderer != null)
 			{
-				var renderer = gameObject.GetComponent<Renderer>();
 				if (obj.HasProperty(Property_SortingLayerName))
-					renderer.sortingLayerName = obj.GetPropertyAsString(Property_SortingLayerName);
+                    renderer.sortingLayerName = obj.GetPropertyAsString(Property_SortingLayerName);
 
 				if (obj.HasProperty(Property_SortingOrder))
-					renderer.sortingOrder = obj.GetPropertyAsInt(Property_SortingOrder);
+                    renderer.sortingOrder = obj.GetPropertyAsInt(Property_SortingOrder);
 
 				if (obj.HasProperty(Property_SetMaterialColor))
 				{

@@ -12,21 +12,21 @@ namespace X_UniTMX.Internal
 {
 	public enum EnumPlayerState { STAY = 1, RIGHT = 2, LEFT = 3, DOWN = 4, UP = 5 };
 
-	public class Character2DController : MonoBehaviour
-	{
-		private Rigidbody2D mRigidbody2D;
-		private Rigidbody2D rigidbody2D
-		{
-			get
-			{
-				if(this.mRigidbody2D == null)
-				{
-					this.mRigidbody2D = GetComponent<Rigidbody2D>();	
-				}
+    public class Character2DController : MonoBehaviour
+    {
+        private Rigidbody2D mRigidbody2D;
 
-				return this.mRigidbody2D;
-			}
-		}
+        private Rigidbody2D rigidbody2D
+        {
+            get
+            {
+                if(this.mRigidbody2D == null)
+                {
+                    this.mRigidbody2D = GetComponent<Rigidbody2D>();
+                }
+                return this.mRigidbody2D;
+            }
+        }
 
 		public GameObject shootPrefab = null;
 		public float ShootVelocity = 10.0f;
@@ -156,8 +156,8 @@ namespace X_UniTMX.Internal
 			{
 				GameObject shootClone = Instantiate(shootPrefab) as GameObject;
 				shootClone.transform.position = transform.position;
-//				shootClone.rigidbody2D.velocity = directionShoot * ShootVelocity;
-				shootClone.GetComponent<Rigidbody2D>().velocity = directionShoot * ShootVelocity;
+                var rigidbody2D = shootClone.GetComponent<Rigidbody2D>();
+				rigidbody2D.velocity = directionShoot * ShootVelocity;
 				canShoot = false;
 				numberShoots--;
 				PlayerPrefs.SetInt("PlayerShoots", numberShoots);

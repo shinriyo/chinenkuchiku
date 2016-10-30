@@ -7,19 +7,19 @@ using System.Collections.Generic;
 [RequireComponent( typeof( BoxCollider2D ), typeof( Rigidbody2D ) )]
 public class CharacterController2D : MonoBehaviour
 {
-	private Rigidbody2D mRigidbody2D;
-	private Rigidbody2D rigidbody2D
-	{
-		get
-		{
-			if (this.mRigidbody2D == null)
-			{
-				this.mRigidbody2D = GetComponent<Rigidbody2D>();
-			}
+    private Rigidbody2D mRigidbody2D;
+    private Rigidbody2D rigidbody2D
+    {
+        get
+        {
+            if(this.mRigidbody2D == null)
+            {
+                this.mRigidbody2D = GetComponent<Rigidbody2D>();
+            }
 
-			return this.mRigidbody2D;
-		}
-	}
+            return this.mRigidbody2D;
+        }
+    }
 
 	#region internal types
 
@@ -386,7 +386,7 @@ public class CharacterController2D : MonoBehaviour
 	private void primeRaycastOrigins( Vector3 futurePosition, Vector3 deltaMovement )
 	{
 		var scaledColliderSize = new Vector2( boxCollider.size.x * Mathf.Abs( transform.localScale.x ), boxCollider.size.y * Mathf.Abs( transform.localScale.y ) ) / 2;
-		var scaledCenter = new Vector2( boxCollider.offset.x * transform.localScale.x, boxCollider.offset.y * transform.localScale.y );
+        var scaledCenter = new Vector2( boxCollider.offset.x * transform.localScale.x, boxCollider.offset.y * transform.localScale.y );
 
 		_raycastOrigins.topRight = transform.position + new Vector3( scaledCenter.x + scaledColliderSize.x, scaledCenter.y + scaledColliderSize.y );
 		_raycastOrigins.topRight.x -= _skinWidth;

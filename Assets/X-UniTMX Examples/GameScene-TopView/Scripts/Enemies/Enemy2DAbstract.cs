@@ -145,10 +145,9 @@ namespace X_UniTMX.Internal
 				GameObject clone = Instantiate(prefabShoot) as GameObject;
 				clone.transform.position = gameObject.transform.position;
 				clone.transform.parent = gameObject.transform.parent;
-//				clone.renderer.sortingLayerName = "Foreground";
-				clone.GetComponent<Renderer>().sortingLayerName = "Foreground";
-//				clone.rigidbody2D.velocity = (directionEnemy * velocityShoot);
-				clone.GetComponent<Rigidbody2D>().velocity = (directionEnemy * velocityShoot);
+                clone.GetComponent<Renderer>().sortingLayerName = "Foreground";
+                var rigidbody2D = clone.GetComponent<Rigidbody2D>();
+				rigidbody2D.velocity = (directionEnemy * velocityShoot);
 			}
 		}
 

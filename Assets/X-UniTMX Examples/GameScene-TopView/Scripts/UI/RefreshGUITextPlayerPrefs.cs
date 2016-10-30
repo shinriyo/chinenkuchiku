@@ -14,6 +14,19 @@ namespace X_UniTMX.Internal
 
 	public class RefreshGUITextPlayerPrefs : MonoBehaviour
 	{
+        private GUIText mGUIText;
+        private GUIText guiText
+        {
+            get
+            {
+                if(this.mGUIText == null)
+                {
+                    this.mGUIText = GetComponent<GUIText>();
+                }
+
+                return this.mGUIText;
+            }
+        }
 
 		public TypeRefreshPlayerPrefs typeRefresh = TypeRefreshPlayerPrefs.INT;
 		public float timeRefresh = 0.5f;
@@ -22,20 +35,6 @@ namespace X_UniTMX.Internal
 		public int defaultValueInt;
 		public float defaultValueFloat;
 		private float countTime = 0.0f;
-
-		private GUIText mGUIText;
-		private GUIText guiText
-		{
-			get
-			{
-				if(this.mGUIText == null)
-				{
-					this.mGUIText = GetComponent<GUIText> ();
-				}
-
-				return this.mGUIText;
-			}
-		}
 
 		// Update is called once per frame
 		void Update()

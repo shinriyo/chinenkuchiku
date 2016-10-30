@@ -626,7 +626,7 @@ namespace X_UniTMX
 								tileSetMesh.uv = uv.ToArray();
 								tileSetMesh.triangles = triangles.ToArray();
 								tileSetMesh.normals = normals.ToArray();
-//								tileSetMesh.Optimize();
+								tileSetMesh.Optimize();
 
 								tileSetMeshFilter.mesh = tileSetMesh;
 
@@ -661,7 +661,7 @@ namespace X_UniTMX
 				tileSetMesh.uv = uv.ToArray();
 				tileSetMesh.triangles = triangles.ToArray();
 				tileSetMesh.normals = normals.ToArray();
-//				tileSetMesh.Optimize();
+				tileSetMesh.Optimize();
 
 				tileSetMeshFilter.mesh = tileSetMesh;
 
@@ -708,8 +708,7 @@ namespace X_UniTMX
 				{
 					Tiles[x, y].TileSprite = t.TileSprite;
 					Tiles[x, y].CurrentID = t.OriginalID;
-					var renderer = Tiles[x, y].TileGameObject.GetComponent<Renderer>();
-					(renderer as SpriteRenderer).sprite = t.TileSprite;
+                    (Tiles[x, y].TileGameObject.GetComponent<Renderer>() as SpriteRenderer).sprite = t.TileSprite;
 				}
 				else
 				{
@@ -763,8 +762,7 @@ namespace X_UniTMX
 				{
 					Tiles[x, y].TileSprite = t.TileSprite;
 					Tiles[x, y].CurrentID = t.OriginalID;
-//					(Tiles[x, y].TileGameObject.renderer as SpriteRenderer).sprite = t.TileSprite;
-					(Tiles[x, y].TileGameObject.GetComponent<Renderer>() as SpriteRenderer).sprite = t.TileSprite;
+                    (Tiles[x, y].TileGameObject.GetComponent<Renderer>() as SpriteRenderer).sprite = t.TileSprite;
 				}
 				else
 				{
