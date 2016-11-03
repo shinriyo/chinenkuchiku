@@ -18,6 +18,15 @@ namespace Chinen
 		private GUIText stage;
 
 		/// <summary>
+		/// Sets the name of the player.
+		/// </summary>
+		/// <param name="name">Name.</param>
+		public void SetPlayerName(string name)
+		{
+			this.paleyrName.text = name;
+		}
+
+		/// <summary>
 		/// Sets the stage.
 		/// </summary>
 		/// <param name="area">Area.</param>

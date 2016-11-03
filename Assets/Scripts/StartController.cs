@@ -28,7 +28,7 @@ namespace chinen
 			IObservable<long> clickStream = Observable
 				.EveryUpdate ()
 				.Where (_ => Input.GetMouseButtonDown (0)); // 左クリックしたフレームだけに
-			clickStream.Subscribe (_ => Load ()).AddTo (gameObject);
+			clickStream.Subscribe (_ => StartCoroutine (LoadStage ())).AddTo (gameObject);
 		}
 
 
@@ -37,11 +37,6 @@ namespace chinen
 		/// </summary>
 		void Update ()
 		{
-		}
-
-		private void Load ()
-		{
-			StartCoroutine (LoadStage ());
 		}
 
 		/// <summary>

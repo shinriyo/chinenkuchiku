@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using X_UniTMX;
 
 namespace chinen
 {
+	/// <summary>
+	/// Camera controller.
+	/// </summary>
 	[RequireComponent (typeof(Camera))]
 	public class CameraController : MonoBehaviour
 	{
@@ -25,6 +29,9 @@ namespace chinen
 		[SerializeField]
 		private string nextLevel;
 
+		/// <summary>
+		/// The m camera.
+		/// </summary>
 		private Camera mCamera;
 
 		void Awake ()
@@ -47,6 +54,9 @@ namespace chinen
 			Debug.Log (tileHeight);
 		}
 
+		/// <summary>
+		/// Lates the update.
+		/// </summary>
 		void LateUpdate ()
 		{
 			var right = mCamera.ViewportToWorldPoint (Vector2.right);
@@ -78,7 +88,8 @@ namespace chinen
 
 			yield return new WaitForSeconds (3);
 
-			Application.LoadLevel (nextLevel);
+//			Application.LoadLevel (nextLevel);
+			SceneManager.LoadScene (nextLevel);
 		}
 	}
 }
