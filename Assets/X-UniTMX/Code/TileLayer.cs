@@ -626,7 +626,7 @@ namespace X_UniTMX
 								tileSetMesh.uv = uv.ToArray();
 								tileSetMesh.triangles = triangles.ToArray();
 								tileSetMesh.normals = normals.ToArray();
-								tileSetMesh.Optimize();
+								;
 
 								tileSetMeshFilter.mesh = tileSetMesh;
 
@@ -661,7 +661,7 @@ namespace X_UniTMX
 				tileSetMesh.uv = uv.ToArray();
 				tileSetMesh.triangles = triangles.ToArray();
 				tileSetMesh.normals = normals.ToArray();
-				tileSetMesh.Optimize();
+				;
 
 				tileSetMeshFilter.mesh = tileSetMesh;
 
