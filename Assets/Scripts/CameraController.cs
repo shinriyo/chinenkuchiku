@@ -12,7 +12,7 @@ namespace chinen
 		[SerializeField]
 		private Transform target;
 
-		[Header("ポジション")]
+		[Header("止めるポジション")]
 		[SerializeField]
 		private Transform stopPosition;
 
@@ -25,11 +25,11 @@ namespace chinen
 		[SerializeField]
 		private string nextLevel;
 
-		private Camera m_camera;
+		private Camera mCamera;
 
 		void Awake ()
 		{
-			m_camera = GetComponent<Camera> ();
+			this.mCamera = GetComponent<Camera> ();
 		}
 
 		/// <summary>
@@ -41,18 +41,22 @@ namespace chinen
 			var height = this.map.TiledMap.Height;
 			Debug.Log (width);
 			Debug.Log (height);
+			var tileWidth = this.map.TiledMap.TileWidth;
+			var tileHeight = this.map.TiledMap.TileHeight;
+			Debug.Log (tileWidth);
+			Debug.Log (tileHeight);
 		}
 
 		void LateUpdate ()
 		{
-			var right = m_camera.ViewportToWorldPoint (Vector2.right);
-			var center = m_camera.ViewportToWorldPoint (Vector2.one * 0.5f);
+			var right = mCamera.ViewportToWorldPoint (Vector2.right);
+			var center = mCamera.ViewportToWorldPoint (Vector2.one * 0.5f);
 
 			if (center.x < target.position.x) {
-				var pos = m_camera.transform.position;
+				var pos = mCamera.transform.position;
 
 				if (Math.Abs (pos.x - target.position.x) >= 0.0000001f) {
-					m_camera.transform.position = new Vector3 (target.position.x, pos.y, pos.z);
+					mCamera.transform.position = new Vector3 (target.position.x, pos.y, pos.z);
 				}
 			}
 
