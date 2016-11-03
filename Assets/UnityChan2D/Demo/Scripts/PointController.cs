@@ -1,11 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// Point controller.
+/// </summary>
 public class PointController : MonoBehaviour
 {
+	[SerializeField]
+    private GUIText total;
 
-    public GUIText total;
-    public GUIText coin;
+	[SerializeField]
+	private GUIText coin;
 
     private static PointController m_instance;
 

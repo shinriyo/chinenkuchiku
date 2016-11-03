@@ -9,8 +9,6 @@ public class TimeController : MonoBehaviour
 
     public GUIText timer;
 
-   
-
     void Update()
     {
         int remainingTime = time - Mathf.FloorToInt(Time.timeSinceLevelLoad * 2.5f);

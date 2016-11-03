@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\ProjectEditor.cs" />
      <Compile Include="Assets\X-UniTMX Examples\OtherExampleScenes\Scripts\Editor\ExamplesEditor.cs" />
      <Compile Include="Assets\X-UniTMX\Editor\GUIHelpers.cs" />
      <Compile Include="Assets\X-UniTMX\Editor\TiledMapComponentEditor.cs" />
@@ -322,6 +323,10 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{1BFCCF27-2DFA-6A7C-5B23-1AD80C2E1F85}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
