@@ -29,6 +29,9 @@ namespace Chinen
 			}
 		}
 
+		/// <summary>
+		/// Adds the coin.
+		/// </summary>
 		public void AddCoin ()
 		{
 			item.text = (Convert.ToInt32 (item.text) + 1).ToString ("00");
