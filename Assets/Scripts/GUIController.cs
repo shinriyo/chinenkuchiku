@@ -9,6 +9,10 @@ namespace Chinen
 	/// </summary>
 	public class GUIController : MonoBehaviour
 	{
+		[Header("名前")]
+		[SerializeField]
+		private GUIText paleyrName;
+
 		[Header("ステージ")]
 		[SerializeField]
 		private GUIText stage;
