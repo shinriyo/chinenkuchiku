@@ -20,10 +20,6 @@ namespace chinen
 		[SerializeField]
 		private Transform stopPosition;
 
-		[Header("マップ")]
-		[SerializeField]
-		private TiledMapComponent map;
-
 		[Header("シーン名")]
 		[SceneName]
 		[SerializeField]
@@ -44,14 +40,6 @@ namespace chinen
 		/// </summary>
 		void Start()
 		{
-			var width = this.map.TiledMap.Width;
-			var height = this.map.TiledMap.Height;
-			Debug.Log (width);
-			Debug.Log (height);
-			var tileWidth = this.map.TiledMap.TileWidth;
-			var tileHeight = this.map.TiledMap.TileHeight;
-			Debug.Log (tileWidth);
-			Debug.Log (tileHeight);
 		}
 
 		/// <summary>
