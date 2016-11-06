@@ -68,22 +68,23 @@ namespace Chinen
 		/// <summary>
 		/// Move the specified move and y.
 		/// </summary>
-		/// <param name="move">Move.</param>
-		/// <param name="y">The y coordinate.</param>
+		/// <param name="x">Xのパラメータ.</param>
+		/// <param name="y">Yのパラメータ.</param>
 		void Move (float x, float y)
 		{
+			float addX = 0;
+			float addY = 0;
 			if (Mathf.Abs (x) > 0) {
 				Quaternion rot = transform.rotation;
 				transform.rotation = Quaternion.Euler (rot.x, Mathf.Sign (x) == 1 ? 0 : 180, rot.z);
 			
-				// yは動かさない.
-				mRigidbody2D.velocity = new Vector2 (x * maxSpeed, 0);
+
+				addX = x;
 			} else if (Mathf.Abs (y) > 0) {
-				// xは動かさない.
-				mRigidbody2D.velocity = new Vector2 (0, y * maxSpeed);
+				addY = y;
 			}
 
-//			mRigidbody2D.velocity = new Vector2 (x * maxSpeed, y * maxSpeed);
+			mRigidbody2D.velocity = new Vector2 (addX * maxSpeed, addY * maxSpeed);
 
 			mAnimator.SetFloat ("Horizontal", x);
 			mAnimator.SetFloat ("Vertical", y);
