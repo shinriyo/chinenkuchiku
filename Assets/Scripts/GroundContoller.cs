@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 namespace Chinen
 {
@@ -21,6 +23,14 @@ namespace Chinen
 			Create (1, 3);
 			Create (8, 3);
 			Create (9, 3);
+
+			this.gameObject.AddComponent<ObservableUpdateTrigger>()
+				.UpdateAsObservable()
+				.SampleFrame(30)
+				.Subscribe(
+					_ => this.Check(),
+					() => Debug.Log("destroy")
+				);
 		}
 
 		private void Create (int x, int y)
@@ -32,6 +42,14 @@ namespace Chinen
 			trans.localPosition = new Vector3(
 				firstPosX + x * 2, firstPosY - y * 2, 1);
 			trans.localScale = Vector3.one;
+		}
+
+		/// <summary>
+		/// Check the specified x and y.
+		/// </summary>
+		private void Check ()
+		{
+			// 爆発チェック.	
 		}
 	}
 }

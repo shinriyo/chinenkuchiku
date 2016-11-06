@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UniRx;
+using UniRx.Triggers;
 
 namespace Chinen
 {
@@ -53,23 +54,15 @@ namespace Chinen
 			mBoxcollier2D = GetComponent<BoxCollider2D> ();
 			mRigidbody2D = GetComponent<Rigidbody2D> ();
 
-//			this.UpdateAsObservable()
-//				.Select(_ => mState != State.Damaged)
-//				.Subscribe(_ =>
-//					{
-//						float x = Input.GetAxis ("Horizontal");
-//						float y = Input.GetAxis ("Vertical");
-//						this.Move (x, y);
-//					});
-		}
-
-		void Update ()
-		{
-			if (mState != State.Damaged) {
-				float x = Input.GetAxis ("Horizontal");
-				float y = Input.GetAxis ("Vertical");
-				this.Move (x, y);
-			}
+			// Update代わり.
+			this.UpdateAsObservable()
+				.Select(_ => mState != State.Damaged)
+				.Subscribe(_ =>
+					{
+						float x = Input.GetAxis ("Horizontal");
+						float y = Input.GetAxis ("Vertical");
+						this.Move (x, y);
+					});
 		}
 
 		/// <summary>
