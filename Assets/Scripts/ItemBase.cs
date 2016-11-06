@@ -5,13 +5,13 @@ using UnityEngine;
 namespace Chinen
 {
 	/// <summary>
-	/// Ground contoller.
+	/// Item base.
 	/// </summary>
-	public class GroundContoller : FactoryBehaviour
+	public class ItemBase : FactoryBehaviour
 	{
 		protected override string prefabName {
 			get { 
-				return "ChinenMap/block";
+				return "ChinenMap/Item";
 			}
 		}
 
@@ -19,7 +19,7 @@ namespace Chinen
 		void Start ()
 		{
 			GameObject go = Instantiate<GameObject> (this.prefab);	
-			go.name = string.Format ("block_{0}", 1);
+			go.name = string.Format ("item_{0}", 1);
 			Transform trans = go.transform;
 			trans.SetParent (transform);
 			trans.localPosition = Vector3.zero;

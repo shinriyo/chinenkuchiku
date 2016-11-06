@@ -2,7 +2,7 @@
 using System.Collections;
 using UniRx;
 
-namespace chinen
+namespace Chinen
 {
 	/// <summary>
 	/// Start controller.

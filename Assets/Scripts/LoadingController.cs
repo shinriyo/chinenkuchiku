@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace chinen
+namespace Chinen
 {
 	/// <summary>
 	/// Loading controller.

@@ -32,7 +32,7 @@ namespace Chinen
 		/// <summary>
 		/// Adds the coin.
 		/// </summary>
-		public void AddCoin ()
+		public void AddItem ()
 		{
 			item.text = (Convert.ToInt32 (item.text) + 1).ToString ("00");
 			total.text = (Convert.ToInt32 (total.text) + 100).ToString ("0000000");

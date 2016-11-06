@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using X_UniTMX;
 
-namespace chinen
+namespace Chinen
 {
 	/// <summary>
 	/// Camera controller.

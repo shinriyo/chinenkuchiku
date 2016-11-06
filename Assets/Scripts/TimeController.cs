@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-namespace chinen
+namespace Chinen
 {
 	/// <summary>
 	/// Time controller.
