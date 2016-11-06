@@ -9,20 +9,17 @@ namespace Chinen
 	/// <summary>
 	/// Ground contoller.
 	/// </summary>
-	public class GroundContoller : FactoryBehaviour
+	public class BlockContoller : FactoryBehaviour
 	{
-		const float firstPosX = -34;
-		const float firstPosY = 12;
-
 		/// <summary>
 		/// Use this for initialization.
 		/// </summary>
 		void Start ()
 		{
-			Create (1, 0);
-			Create (1, 3);
-			Create (8, 3);
-			Create (9, 3);
+			this.Create (1, 0);
+			this.Create (1, 3);
+			this.Create (8, 3);
+			this.Create (9, 3);
 
 			this.gameObject.AddComponent<ObservableUpdateTrigger>()
 				.UpdateAsObservable()
@@ -33,15 +30,20 @@ namespace Chinen
 				);
 		}
 
-		private void Create (int x, int y)
+		/// <summary>
+		/// Create the specified x and y.
+		/// </summary>
+		/// <param name="x">The x coordinate.</param>
+		/// <param name="y">The y coordinate.</param>
+		protected void Create (int x, int y)
 		{
 			GameObject go = Instantiate<GameObject> (base.prefab);	
-			go.name = string.Format ("block_{0}", id);
+			go.name = string.Format (base.nameFormat, id);
 			id++;
 			Transform trans = go.transform;
 			trans.SetParent (transform);
 			trans.localPosition = new Vector3(
-				firstPosX + x * 2, firstPosY - y * 2, 1);
+				firstPosX + x * size, firstPosY - y * size, 1);
 			trans.localScale = Vector3.one;
 		}
 
