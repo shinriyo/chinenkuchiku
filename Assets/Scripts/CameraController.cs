@@ -57,8 +57,11 @@ namespace Chinen
 			{
 				var pos = mCamera.transform.position;
 
-				if (Math.Abs (pos.x - target.position.x) >= 0.0000001f) {
-					mCamera.transform.position = new Vector3 (target.position.x, pos.y, pos.z);
+				if (Math.Abs (pos.x - target.position.x) >= 0.0000001f ||
+					Math.Abs (pos.y - target.position.y) >= 0.0000001f)
+				{
+					mCamera.transform.position = new Vector3 (target.position.x, target.position.y, pos.z);
+//					mCamera.transform.position = new Vector3 (target.position.x, pos.y, pos.z);
 				}
 			}
 
