@@ -18,13 +18,13 @@ namespace Chinen
 		[SerializeField]
 		private Vector2 backwardForce = new Vector2 (-4.5f, 5.4f);
 
-//		[SerializeField]
-//		private LayerMask whatIsGround;
+		//		[SerializeField]
+		//		private LayerMask whatIsGround;
 
 		private Animator mAnimator;
 		private BoxCollider2D mBoxcollier2D;
 		private Rigidbody2D mRigidbody2D;
-//		private bool mIsGround;
+		//		private bool mIsGround;
 		private const float mCenterY = 1.5f;
 
 		private State mState = State.Normal;
@@ -72,7 +72,7 @@ namespace Chinen
 			}
 		}
 
-//		void Move (float move, bool jump)
+		//		void Move (float move, bool jump)
 		void Move (float move, float y)
 		{
 			if (Mathf.Abs (move) > 0) {
@@ -117,11 +117,13 @@ namespace Chinen
 		IEnumerator INTERNAL_OnDamage ()
 		{
 //			mAnimator.Play (mIsGround ? "Damage" : "AirDamage");
+			mAnimator.Play ("Damage");
 			mAnimator.Play ("Idle");
 
 			SendMessage ("OnDamage", SendMessageOptions.DontRequireReceiver);
 
-			mRigidbody2D.velocity = new Vector2 (transform.right.x * backwardForce.x, transform.up.y * backwardForce.y);
+//			mRigidbody2D.velocity = new Vector2 (transform.right.x * backwardForce.x,
+//				transform.up.y * backwardForce.y);
 
 			yield return new WaitForSeconds (.2f);
 
