@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UniRx;
 
 namespace Chinen
 {
@@ -18,13 +19,9 @@ namespace Chinen
 		[SerializeField]
 		private Vector2 backwardForce = new Vector2 (-4.5f, 5.4f);
 
-		//		[SerializeField]
-		//		private LayerMask whatIsGround;
-
 		private Animator mAnimator;
 		private BoxCollider2D mBoxcollier2D;
 		private Rigidbody2D mRigidbody2D;
-		//		private bool mIsGround;
 		private const float mCenterY = 1.5f;
 
 		private State mState = State.Normal;
@@ -33,11 +30,7 @@ namespace Chinen
 		{
 			Awake ();
 
-			// UnityChan2DController
-			maxSpeed = 10f;
-			jumpPower = 1000;
-			backwardForce = new Vector2 (-4.5f, 5.4f);
-//			whatIsGround = 1 << LayerMask.NameToLayer ("Ground");
+			this.backwardForce = new Vector2 (-4.5f, 5.4f);
 
 			// Transform
 			transform.localScale = new Vector3 (1, 1, 1);
@@ -59,6 +52,15 @@ namespace Chinen
 			mAnimator = GetComponent<Animator> ();
 			mBoxcollier2D = GetComponent<BoxCollider2D> ();
 			mRigidbody2D = GetComponent<Rigidbody2D> ();
+
+//			this.UpdateAsObservable()
+//				.Select(_ => mState != State.Damaged)
+//				.Subscribe(_ =>
+//					{
+//						float x = Input.GetAxis ("Horizontal");
+//						float y = Input.GetAxis ("Vertical");
+//						this.Move (x, y);
+//					});
 		}
 
 		void Update ()
@@ -66,13 +68,15 @@ namespace Chinen
 			if (mState != State.Damaged) {
 				float x = Input.GetAxis ("Horizontal");
 				float y = Input.GetAxis ("Vertical");
-//				bool jump = Input.GetButtonDown ("Jump");
-//				Move (x, jump);
 				this.Move (x, y);
 			}
 		}
 
-		//		void Move (float move, bool jump)
+		/// <summary>
+		/// Move the specified move and y.
+		/// </summary>
+		/// <param name="move">Move.</param>
+		/// <param name="y">The y coordinate.</param>
 		void Move (float move, float y)
 		{
 			if (Mathf.Abs (move) > 0) {
@@ -80,30 +84,17 @@ namespace Chinen
 				transform.rotation = Quaternion.Euler (rot.x, Mathf.Sign (move) == 1 ? 0 : 180, rot.z);
 			}
 
-//			mRigidbody2D.velocity = new Vector2 (move * maxSpeed, mRigidbody2D.velocity.y);
 			mRigidbody2D.velocity = new Vector2 (move * maxSpeed, y * maxSpeed);
 
 			mAnimator.SetFloat ("Horizontal", move);
-//			mAnimator.SetFloat ("Vertical", mRigidbody2D.velocity.y);
 			mAnimator.SetFloat ("Vertical", y);
-//			mAnimator.SetBool ("isGround", mIsGround);
-			mAnimator.SetBool ("isGround", true);
-
-//			if (jump && mIsGround) {
-//				mAnimator.SetTrigger ("Jump");
-//				SendMessage ("Jump", SendMessageOptions.DontRequireReceiver);
-//				mRigidbody2D.AddForce (Vector2.up * jumpPower);
-//			}
 		}
 
+		/// <summary>
+		/// Fixeds the update.
+		/// </summary>
 		void FixedUpdate ()
 		{
-			Vector2 pos = transform.position;
-			Vector2 groundCheck = new Vector2 (pos.x, pos.y - (mCenterY * transform.localScale.y));
-//			Vector2 groundArea = new Vector2 (mBoxcollier2D.size.x * 0.49f, 0.05f);
-
-//			mIsGround = Physics2D.OverlapArea (groundCheck + groundArea, groundCheck - groundArea, whatIsGround);
-//			mAnimator.SetBool ("isGround", mIsGround);
 		}
 
 		void OnTriggerStay2D (Collider2D other)
@@ -114,22 +105,19 @@ namespace Chinen
 			}
 		}
 
+		/// <summary>
+		/// INTERNAs the l on damage.
+		/// </summary>
+		/// <returns>The l on damage.</returns>
 		IEnumerator INTERNAL_OnDamage ()
 		{
-//			mAnimator.Play (mIsGround ? "Damage" : "AirDamage");
 			mAnimator.Play ("Damage");
 			mAnimator.Play ("Idle");
 
 			SendMessage ("OnDamage", SendMessageOptions.DontRequireReceiver);
 
-//			mRigidbody2D.velocity = new Vector2 (transform.right.x * backwardForce.x,
-//				transform.up.y * backwardForce.y);
-
 			yield return new WaitForSeconds (.2f);
 
-//			while (mIsGround == false) {
-//				yield return new WaitForFixedUpdate ();
-//			}
 			mAnimator.SetTrigger ("Invincible Mode");
 			mState = State.Invincible;
 		}

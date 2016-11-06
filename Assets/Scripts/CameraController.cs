@@ -12,15 +12,15 @@ namespace Chinen
 	[RequireComponent (typeof(Camera))]
 	public class CameraController : MonoBehaviour
 	{
-		[Header("ターゲット")]
+		[Header ("ターゲット")]
 		[SerializeField]
 		private Transform target;
 
-		[Header("止めるポジション")]
+		[Header ("クリアの止めるポジション")]
 		[SerializeField]
 		private Transform stopPosition;
 
-		[Header("シーン名")]
+		[Header ("シーン名")]
 		[SceneName]
 		[SerializeField]
 		private string nextLevel;
@@ -38,7 +38,7 @@ namespace Chinen
 		/// <summary>
 		/// Start this instance.
 		/// </summary>
-		void Start()
+		void Start ()
 		{
 		}
 
@@ -47,10 +47,14 @@ namespace Chinen
 		/// </summary>
 		void LateUpdate ()
 		{
-			var right = mCamera.ViewportToWorldPoint (Vector2.right);
+//			var right = mCamera.ViewportToWorldPoint (Vector2.right);
 			var center = mCamera.ViewportToWorldPoint (Vector2.one * 0.5f);
 
-			if (center.x < target.position.x) {
+			// 真ん中より右.
+//			if (center.x < target.position.x)
+
+//			if (center.x < target.position.x)
+			{
 				var pos = mCamera.transform.position;
 
 				if (Math.Abs (pos.x - target.position.x) >= 0.0000001f) {
@@ -66,6 +70,10 @@ namespace Chinen
 			*/
 		}
 
+		/// <summary>
+		/// ステージクリア.
+		/// </summary>
+		/// <returns>The l clear.</returns>
 		private IEnumerator INTERNAL_Clear ()
 		{
 			var player = GameObject.FindGameObjectWithTag ("Player");
@@ -76,7 +84,6 @@ namespace Chinen
 
 			yield return new WaitForSeconds (3);
 
-//			Application.LoadLevel (nextLevel);
 			SceneManager.LoadScene (nextLevel);
 		}
 	}
