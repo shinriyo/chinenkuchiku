@@ -6,6 +6,7 @@ namespace Chinen
 {
 	public class FactoryBehaviour : MonoBehaviour
 	{
+		protected int id = 0;
 		protected GameObject prefab = null;
 		const string format = "ChinenMap/{0}";
 

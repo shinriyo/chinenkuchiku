@@ -13,7 +13,8 @@ namespace Chinen
 		void Start ()
 		{
 			GameObject go = Instantiate<GameObject> (this.prefab);	
-			go.name = string.Format ("item_{0}", 1);
+			go.name = string.Format ("item_{0}", id);
+			id++;
 			Transform trans = go.transform;
 			trans.SetParent (transform);
 			trans.localPosition = Vector3.zero;

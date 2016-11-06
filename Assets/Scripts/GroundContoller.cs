@@ -36,7 +36,8 @@ namespace Chinen
 		private void Create (int x, int y)
 		{
 			GameObject go = Instantiate<GameObject> (base.prefab);	
-			go.name = string.Format ("block_{0}", 1);
+			go.name = string.Format ("block_{0}", id);
+			id++;
 			Transform trans = go.transform;
 			trans.SetParent (transform);
 			trans.localPosition = new Vector3(
