@@ -25,8 +25,7 @@ namespace Chinen
 		protected override void Create (int x, int y)
 		{
 			GameObject go = Instantiate<GameObject> (this.prefab);	
-			go.name = string.Format ("enemy_{0}", id);
-			id++;
+			go.name = base.GetName ();
 			Transform trans = go.transform;
 			trans.SetParent (transform);
 			trans.localPosition = new Vector3(

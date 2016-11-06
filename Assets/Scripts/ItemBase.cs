@@ -13,6 +13,9 @@ namespace Chinen
 		void Start ()
 		{
 			this.Create (1, 3);
+			this.Create (9, 5);
+			this.Create (1, 8);
+			this.Create (18, 13);
 		}
 
 		/// <summary>
@@ -23,8 +26,7 @@ namespace Chinen
 		protected override void Create (int x, int y)
 		{
 			GameObject go = Instantiate<GameObject> (this.prefab);	
-			go.name = string.Format ("item_{0}", id);
-			id++;
+			go.name = base.GetName ();
 			Transform trans = go.transform;
 			trans.SetParent (transform);
 			trans.localPosition = new Vector3 (

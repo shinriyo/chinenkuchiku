@@ -4,15 +4,17 @@ using UnityEngine;
 
 namespace Chinen
 {
+	/// <summary>
+	/// Factory behaviour.
+	/// </summary>
 	public class FactoryBehaviour : MonoBehaviour
 	{
 		protected const float firstPosX = -34;
 		protected const float firstPosY = 12;
 
-		protected int id = 0;
 		protected GameObject prefab = null;
 		protected const float size = 2.0f;
-		const string format = "ChinenMap/{0}";
+		const string prefabFormat = "ChinenMap/{0}";
 
 		[SerializeField]
 		protected string prefabName = "Name";
@@ -20,10 +22,11 @@ namespace Chinen
 		[SerializeField]
 		protected string nameFormat = "name_{0}";
 
+		private int id = 0;
 		protected virtual void Awake ()
 		{
 			this.prefab = Resources.Load <GameObject> (
-				string.Format (format, prefabName)
+				string.Format (prefabFormat, prefabName)
 			);
 		}
 
@@ -34,6 +37,17 @@ namespace Chinen
 		/// <param name="y">The y coordinate.</param>
 		protected virtual void Create (int x, int y)
 		{
+		}
+
+		/// <summary>
+		/// Gets the name.
+		/// </summary>
+		/// <returns>The name.</returns>
+		protected string GetName ()
+		{
+			string objName = string.Format (nameFormat, this.id);
+			this.id++;
+			return objName;
 		}
 	}
 }
