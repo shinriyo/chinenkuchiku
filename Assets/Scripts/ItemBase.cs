@@ -9,12 +9,6 @@ namespace Chinen
 	/// </summary>
 	public class ItemBase : FactoryBehaviour
 	{
-		protected override string prefabName {
-			get { 
-				return "ChinenMap/Item";
-			}
-		}
-
 		// Use this for initialization
 		void Start ()
 		{

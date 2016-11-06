@@ -9,16 +9,10 @@ namespace Chinen
 	/// </summary>
 	public class GroundContoller : FactoryBehaviour
 	{
-		protected override string prefabName {
-			get { 
-				return "ChinenMap/block";
-			}
-		}
-
 		// Use this for initialization
 		void Start ()
 		{
-			GameObject go = Instantiate<GameObject> (this.prefab);	
+			GameObject go = Instantiate<GameObject> (base.prefab);	
 			go.name = string.Format ("block_{0}", 1);
 			Transform trans = go.transform;
 			trans.SetParent (transform);

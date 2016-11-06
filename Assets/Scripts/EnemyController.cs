@@ -9,13 +9,9 @@ namespace Chinen
 	/// </summary>
 	public class EnemyController : FactoryBehaviour
 	{
-		protected override string prefabName {
-			get { 
-				return "ChinenMap/Enemy";
-			}
-		}
-
-		// Use this for initialization
+		/// <summary>
+		/// Use this for initialization.
+		/// </summary>
 		void Start ()
 		{
 			GameObject go = Instantiate<GameObject> (this.prefab);	

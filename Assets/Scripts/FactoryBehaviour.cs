@@ -7,16 +7,16 @@ namespace Chinen
 	public class FactoryBehaviour : MonoBehaviour
 	{
 		protected GameObject prefab = null;
+		const string format = "ChinenMap/{0}";
 
-		protected virtual string prefabName {
-			get { 
-				return "";
-			}
-		}
+		[SerializeField]
+		protected string prefabName;
 
 		protected virtual void Awake ()
 		{
-			this.prefab = Resources.Load <GameObject> (prefabName);
+			this.prefab = Resources.Load <GameObject> (
+				string.Format(format, prefabName)
+			);
 		}
 	}
 }
